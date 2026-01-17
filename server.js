@@ -19,6 +19,10 @@ app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/home", homeRoutes)
 app.use("/api/v1/admin", adminRoutes)
 
+app.get("/", (req, res) => {
+  res.status(200).send("Server is live")
+})
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
