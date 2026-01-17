@@ -1,6 +1,5 @@
 const cors = require('cors')
 
-
 const configureCors = () =>{
   return cors({
     //origin -> this will tell that which origins you want user can access your api

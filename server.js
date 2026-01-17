@@ -11,13 +11,14 @@ const app = express()
 const PORT = process.env.PORT || 3100
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(configureCors())
-app.use("/api/auth", authRoutes)
-app.use("/api/home", homeRoutes)
-app.use("/api/admin", adminRoutes)
-
-
 connectDB()
+
+app.use("/api/v1/auth", authRoutes)
+app.use("/api/v1/home", homeRoutes)
+app.use("/api/v1/admin", adminRoutes)
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
